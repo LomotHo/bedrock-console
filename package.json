@@ -1,0 +1,29 @@
+{
+  "name": "bedrock-console",
+  "version": "0.0.1",
+  "description": "bedrock-console",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "test-init": "NODE_ENV=test node ./unit/init-db.js",
+    "test": "NODE_ENV=test node ./app.js",
+    "dev": "NODE_ENV=test gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LomotHo/bedrock-console.git"
+  },
+  "author": "lomot",
+  "license": "Apache2.0",
+  "bugs": {
+    "url": "https://github.com/LomotHo/bedrock-console/issues"
+  },
+  "homepage": "https://github.com/LomotHo/bedrock-console#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "koa": "^2.7.0",
+    "mime": "^2.4.4",
+    "mz": "^2.7.0",
+    "socket.io": "~1.2.1"
+  }
+}

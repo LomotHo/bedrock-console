@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO Minecraft Server</title>
+    <style>
+	body{
+	background-color:black;
+	}
+	a.console{
+	font-size:1.2em;
+	color:white;
+	display:block;
+	width:100%;
+	font-family: 'DejaVu Sans Mono', 'Everson Mono', FreeMono, Menlo, Terminal, monospace;
+	}
+	input.command{
+		width:100%;
+		color:white;
+		background-color:black;
+		font-size:1.2em;
+		border:0;
+		outline:none;
+	font-family: 'DejaVu Sans Mono', 'Everson Mono', FreeMono, Menlo, Terminal, monospace;
+	}
+    </style>
+  </head>
+  <body>
+    <div id="messages"></div>
+	<form><input id="m" type="text" class="command"></form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io(); //Put in ip and port here if requiered
+	  var token = "";
+	  var authenticated = false;
+      $('form').submit(function(){
+		if (authenticated==true){
+			socket.emit('chat message', $('#m').val());
+			$('#m').val('');
+			return false;
+		}else{
+			console.log(token);
+			socket.emit(token, $('#m').val());
+			$('#m').val('');
+			return false;
+		}
+      });
+    socket.on('chat message', function(msg){
+		msg = msg.replace(/(?:\r\n|\r|\n)/g, '');
+        $('#messages').append($('<a class="console">').text(msg));
+			window.scrollTo(0,document.body.scrollHeight);
+      });
+	socket.on('token', function(msg){
+		console.log(msg);
+		token=msg;
+		socket.on(token, function(msg){
+			if (msg==1){
+				authenticated=true;
+				console.log("Logged in: " + msg);
+			}else{
+				console.log("Not Logged in: " + msg);
+			}
+			console.log(authenticated);
+		});
+
+    });
+    </script>
+  </body>
+</html>
