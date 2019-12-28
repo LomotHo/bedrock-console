@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const app = new Koa();
+const config = require('./config');
 var server = require('http').createServer(app.callback())
 var io = require('socket.io')(server);
 var readline = require('readline');
@@ -7,7 +8,7 @@ var staticFiles = require('./util/static-flies');
 var clientsocket = "";
 var authenticated = false;
 var client_token = "";
-var password = "1234567890";
+var password = config.password;
 
 //Clear console
 console.log('\033[2J');
@@ -104,6 +105,6 @@ rl.on('line', function (cmd) {
 minecraftServerProcess.stdout.on('data', log);
 minecraftServerProcess.stderr.on('data', log);
 
-server.listen(19135, function(){
-  console.log('listening on *:19135');
+server.listen(config.localPort, function(){
+  console.log(`listening on *:${config.localPort}`);
 });
