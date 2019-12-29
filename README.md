@@ -1,4 +1,5 @@
 # bedrock-console
+version: 0.0.2
 
 ## 运行
 ```
@@ -21,3 +22,7 @@ node app.js
 ## 使用
 
 默认登录页面为：http://www.xxx.com:3000/index.html
+
+## 引用
+### Minecraft-Nodejs-live-web-console
+部分代码来自于此项目: https://github.com/robinp7720/Minecraft-Nodejs-live-web-console
