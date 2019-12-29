@@ -20,4 +20,4 @@ node app.js
 
 ## 使用
 
-默认登录页面为：http://192.168.8.250:3000/index.html
+默认登录页面为：http://www.xxx.com:3000/index.html
