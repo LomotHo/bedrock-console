@@ -9,6 +9,7 @@ git clone https://github.com/LomotHo/bedrock-console.git && cd bedrock-console
 mkdir bedrock && unzip bedrock-server-1.xx.xx.xx.zip
 
 // 3.运行（要先安装nodejs）
+npm i
 node app.js
 ```
 
