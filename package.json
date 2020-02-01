@@ -1,6 +1,6 @@
 {
   "name": "bedrock-console",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "bedrock-console",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/LomotHo/bedrock-console.git"
   },
   "author": "lomot",
-  "license": "Apache2.0",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/LomotHo/bedrock-console/issues"
   },

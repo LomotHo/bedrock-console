@@ -11,7 +11,7 @@ var client_token = "";
 var password = config.password;
 
 //Clear console
-console.log('\033[2J');
+// console.log('\033[2J');
 
 //Create a random token
 var rand = function() {

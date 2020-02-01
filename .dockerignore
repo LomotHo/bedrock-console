@@ -1,0 +1,10 @@
+# normal
+node_modules
+.DS_Store
+*.sqlite
+
+# for project
+.git
+.old/
+delivery.sqlite
+bedrock
