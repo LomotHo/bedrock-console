@@ -4,6 +4,8 @@
 version: 0.1.0
 
 ## 运行
+
+### 直接运行
 ```
 // 1. clone项目
 git clone https://github.com/LomotHo/bedrock-console.git && cd bedrock-console
