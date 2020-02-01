@@ -23,17 +23,17 @@ docker run -d --restart=always --name=mcpe-console --net=host \
   lomot/minecraft-bedrock:base-console
 ```
 
-注意: 服务端数据文件夹/opt/mcpe-data需要包括完整的服务器文件才能运行, 第一次配置建议从官方网站下载并解压[Minecraft服务端下载]
-在```/opt/mcpe-data```中添加```console.js```文件可以替换默认配置，格式为：
+注意: 
+ - 服务端数据文件夹/opt/mcpe-data需要包括完整的服务器文件才能运行, 第一次配置建议从官方网站下载并解压[Minecraft服务端下载]
+ - 替换配置文件：在```/opt/mcpe-data```中添加```console.js```文件可以替换默认配置，格式为：
 
-```json
-var config = {
-  "localPort": 3000,
-  "password": "123456"
-};
-
-module.exports = config;
-```
+  ```json
+  var config = {
+    "localPort": 3000,
+    "password": "123456"
+  };
+  module.exports = config;
+  ```
 
 ## 配置
 #### 配置文件是config/index.js，当前可用项目：
