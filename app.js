@@ -5,10 +5,10 @@ const server = require('http').createServer(app.callback())
 const io = require('socket.io')(server);
 const readline = require('readline');
 const staticFiles = require('./util/static-flies');
-const clientsocket = "";
-const authenticated = false;
-const client_token = "";
 const password = config.password;
+let authenticated = false;
+let clientsocket = "";
+let client_token = "";
 
 //Clear console
 // console.log('\033[2J');
