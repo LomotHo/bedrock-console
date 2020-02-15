@@ -6,9 +6,9 @@ const io = require('socket.io')(server);
 const readline = require('readline');
 const staticFiles = require('./util/static-flies');
 const password = config.password;
-let authenticated = false;
-let clientsocket = "";
-let client_token = "";
+var authenticated = false;
+var clientsocket = "";
+var client_token = "";
 
 //Clear console
 // console.log('\033[2J');
