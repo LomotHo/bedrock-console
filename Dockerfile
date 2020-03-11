@@ -5,6 +5,11 @@ ENV NODE_ENV=production \
 
 WORKDIR $SERVER_PATH
 
+RUN apt-get update && \
+ apt-get -y install libcurl4 && \
+ apt-get -y autoremove && \
+ apt-get clean
+
 COPY package*.json ./
 RUN npm install --only=production
 
