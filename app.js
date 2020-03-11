@@ -1,20 +1,12 @@
-// const Koa = require('koa');
-// const app = new Koa();
-// const config = require('./config');
-// const server = require('http').createServer(app.callback())
-// const io = require('socket.io')(server);
-// const readline = require('readline');
-// const staticFiles = require('./util/static-flies');
-// const password = config.password;
+const Koa = require('koa');
+const app = new Koa();
+const config = require('./config');
+const server = require('http').createServer(app.callback())
+const io = require('socket.io')(server);
+const readline = require('readline');
+const staticFiles = require('./util/static-flies');
+const password = config.password;
 
-var Koa = require('koa');
-var app = new Koa();
-var config = require('./config');
-var server = require('http').createServer(app.callback())
-var io = require('socket.io')(server);
-var readline = require('readline');
-var staticFiles = require('./util/static-flies');
-var password = config.password;
 var authenticated = false;
 var clientsocket = "";
 var client_token = "";
@@ -23,11 +15,11 @@ var client_token = "";
 // console.log('\033[2J');
 
 //Create a random token
-var rand = function() {
+const rand = function() {
   return Math.random().toString(36).substr(2); // remove `0.`
 };
 
-var token = function() {
+const token = function() {
   return rand() + rand(); // to make it longer
 };
 
@@ -35,7 +27,7 @@ var token = function() {
 app.use(new staticFiles('/', __dirname + '/view'));
 
 //Start the minecraft server
-var spawn = require('child_process').spawn,
+const spawn = require('child_process').spawn,
 minecraftServerProcess = spawn('./bedrock_server', [], {cwd: './bedrock'});
 
 
@@ -97,7 +89,7 @@ function log(data) {
 		io.sockets.connected[clientsocket].emit('chat message', data.toString());
 	}
 }
-var rl = readline.createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
