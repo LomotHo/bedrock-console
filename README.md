@@ -4,7 +4,7 @@
 version: 0.2.0
 
 
-![snapshot](https://static-1251996892.cos.ap-chengdu.myqcloud.com/img/markdown/2020/bedrock-console-ui.jpg)
+![screenshot](https://github.com/LomotHo/bedrock-console/blob/dev/screenshot/bedrock-console-ui.jpg)
 ## 运行
 
 ### 直接运行
