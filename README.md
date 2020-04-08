@@ -4,7 +4,7 @@
 version: 0.2.0
 
 
-![screenshot](https://github.com/LomotHo/bedrock-console/blob/dev/screenshot/bedrock-console-ui.jpg)
+![screenshot](https://raw.githubusercontent.com/LomotHo/bedrock-console/dev/screenshot/bedrock-console-ui.png)
 ## 运行
 
 ### 直接运行
