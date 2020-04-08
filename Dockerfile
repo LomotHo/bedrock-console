@@ -1,4 +1,4 @@
-FROM node:12-buster-slim
+FROM node:12-slim
 
 ENV NODE_ENV=production \
   SERVER_PATH="/server" 
