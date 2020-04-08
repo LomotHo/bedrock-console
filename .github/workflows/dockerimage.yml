@@ -16,4 +16,4 @@ jobs:
     - name: upload image
       run: |
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
-        docker push lomot/minecraft-bedrock:base-console
+        docker push lomot/minecraft-bedrock:base-console-dev

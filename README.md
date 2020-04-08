@@ -1,8 +1,10 @@
 [Minecraft服务端下载]:https://minecraft.net/en-us/download/server/bedrock/
 
 # bedrock-console
-version: 0.1.0
+version: 0.2.0
 
+
+![snapshot](https://static-1251996892.cos.ap-chengdu.myqcloud.com/img/markdown/2020/bedrock-console-ui.jpg)
 ## 运行
 
 ### 直接运行
