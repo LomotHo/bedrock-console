@@ -33,8 +33,7 @@ docker run -d --restart=always --name=mcpe-console --net=host \
 
   ```json
   var config = {
-    "localPort": 3000,
-    "password": "123456"
+    "localPort": 3000
   };
   module.exports = config;
   ```
@@ -42,12 +41,7 @@ docker run -d --restart=always --name=mcpe-console --net=host \
 ## 配置
 #### 配置文件是config/index.js，当前可用项目：
  - localPort: 控制台网页端口
- - password: 控制台密码 默认为123456
 
 ## 使用
 
-默认登录页面为：http://www.xxx.com:3000/index.html
-
-## 引用
-### Minecraft-Nodejs-live-web-console
-部分代码来自于此项目: https://github.com/robinp7720/Minecraft-Nodejs-live-web-console
+默认登录页面为：http://www.xxx.com:3000

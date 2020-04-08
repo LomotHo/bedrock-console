@@ -12,8 +12,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag lomot/minecraft-bedrock:base-console-dev
+        docker build . --file Dockerfile --tag lomot/minecraft-bedrock:base-console
     - name: upload image
       run: |
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
-        docker push lomot/minecraft-bedrock:base-console-dev
+        docker push lomot/minecraft-bedrock:base-console
