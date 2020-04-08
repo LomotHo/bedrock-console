@@ -1,10 +1,15 @@
+const path = require('path');
 var Koa = require('koa');
 var app = new Koa();
+var staticFiles = require('./util/static-flies');
 var config = require('./config');
 var server = require('http').createServer(app.callback())
 var io = require('socket.io')(server);
 var readline = require('readline');
-var staticFiles = require('./util/static-flies');
+
+const static = require('koa-static');
+// const route = require('koa-route');
+
 var log = require('./util/log');
 var password = config.password;
 var authenticated = false;
@@ -12,6 +17,9 @@ var clientsocket = "";
 var client_token = "";
 
 
+// app.use(new staticFiles('/', __dirname + '/public'));
+const home = static(path.join(__dirname)+'/public/');
+app.use(home);
 
 // fork BDS
 var spawn = require('child_process').spawn,
@@ -79,8 +87,6 @@ server.listen(config.localPort, function(){
 //   return rand() + rand(); // to make it longer
 // };
 
-// // start static file
-// app.use(new staticFiles('/', __dirname + '/view'));
 
 // //Start the minecraft server
 // var spawn = require('child_process').spawn,
