@@ -25,7 +25,7 @@ node app.js
 ```
 docker run -d --restart=always --name=mcpe-console --net=host \
   -v /opt/mcpe-data:/server/bedrock \
-  lomot/minecraft-bedrock:base-console
+  lomot/bedrock-web-console:latest
 ```
 
 注意: 
