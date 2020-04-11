@@ -5,7 +5,7 @@ version: 0.3.1
 
 本项目是一个使用Nodejs实现的Minecraft Bedrock服务器的web控制台，同时支持使用http接口向后台发送命令。
 
-![screenshot](https://raw.githubusercontent.com/LomotHo/bedrock-console/dev/screenshot/bedrock-console-ui.png)
+![screenshot](https://raw.githubusercontent.com/LomotHo/bedrock-console/master/screenshot/bedrock-console-ui.png)
 ## 运行
 
 ### 直接运行
