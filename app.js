@@ -1,41 +1,55 @@
 const path = require('path');
-var Koa = require('koa');
-var app = new Koa();
-var staticFiles = require('./util/static-flies');
-var config = require('./config');
-var server = require('http').createServer(app.callback())
-var io = require('socket.io')(server);
-var readline = require('readline');
-
+const Koa = require('koa');
+const app = new Koa();
+const server = require('http').createServer(app.callback())
+const io = require('socket.io')(server);
+const readline = require('readline');
 const static = require('koa-static');
-// const route = require('koa-route');
 
-var log = require('./util/log');
-var password = config.password;
-var authenticated = false;
+// module
+const config = require('./config');
+const log = require('./util/log');
+const action = require("./action");
+const rest = require("./util/rest");
+const controller = require('./controller');
+// global var
+global.config = config;
+global.log = log;
+
+
 var clientsocket = "";
-var client_token = "";
+
+// lauch BDS
+const BDS = new action.bds();
+global.BDS = BDS;
+var bdsProcess = BDS.getProcess();
 
 
-// app.use(new staticFiles('/', __dirname + '/public'));
+// static files, Vue view
 const home = static(path.join(__dirname)+'/public/');
 app.use(home);
 
-// fork BDS
-var spawn = require('child_process').spawn,
-bdsProcess = spawn('./bedrock_server', [], {cwd: './bedrock'});
+// restful api
+app.use(rest.restify(config.apiPrefix));
+app.use(controller(path.resolve(__dirname, './controller')));
 
-
-io.on('connection', function(socket){
+// websocket
+io.on('connection', function(socket) {
 	clientsocket = socket.id;
-	log.info(`client ${clientsocket} connected`);
+	log.info(`[WS] client ${clientsocket} connected`);
 	io.sockets.connected[clientsocket].emit("log",`welcome ${clientsocket}`);
-	socket.on('cmd', function(msg){
-		log.info(`client=> ${msg.cmd}`);
-		bdsProcess.stdin.write(msg.cmd+'\n');
+	socket.on('cmd', function(msg) {
+		log.info(`[WS] client# ${msg.cmd}`);
+		// bdsProcess.stdin.write(msg.cmd+'\n');
+		BDS.writeCmd(msg.cmd);
+	});
+	socket.on('disconnect', function() {
+		log.info('[WS] ws client Disconnected');
+		clientsocket = "";
+		// authenticated = false;
+		// client_token = "";
 	});
 })
-
 
 
 function bdsLog(data) {
@@ -45,8 +59,12 @@ function bdsLog(data) {
 		log.info(`[BDS] ${line}`);
 	})
 
-	if(clientsocket!=''){
-		io.sockets.connected[clientsocket].emit('log', data.toString());
+	if(clientsocket!='') {
+		try {
+			io.sockets.connected[clientsocket].emit('log', data.toString());
+		} catch (error) {
+			log.error("emit error: ws client offline");
+		}
 	}
 }
 
