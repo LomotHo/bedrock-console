@@ -7,45 +7,55 @@
 ## 运行
 
 ### 直接运行
-```
-// 1. clone项目
+```sh
+# 1. clone项目
 git clone https://github.com/LomotHo/bedrock-console.git && cd bedrock-console
 
-// 2. 创建bedrock文件夹，解压服务端程序到bedrock
+# 2. 创建bedrock文件夹，解压服务端程序到bedrock
 mkdir bedrock && cd bedrock && unzip bedrock-server-1.xx.xx.xx.zip
 cd ..
 
-// 3.构建vue（要先安装nodejs）
+# 3.构建vue（要先安装nodejs, 当前构建使用版本为12.16）
 cd vue
 npm i
 npm run build
 cd ..
 
-// 4.运行
+# 4.运行
 npm i
 node app.js
 ```
 
-### docker
-```
-docker run -d --restart=always --name=mcpe-console --net=host \
-  -v /opt/mcpe-data:/server/bedrock \
-  lomot/bedrock-web-console:latest
-```
+### 使用 docker 容器（推荐）
+
+ - 指定端口
+    ```sh
+    docker run -d --restart=always --name=mcpe-console \
+      -p 19132:19132/udp -p 3000:3000 \
+      -v /opt/mcpe-data:/server/bedrock \
+      lomot/bedrock-web-console:latest
+    ```
+
+ - 使用host模式
+    ```sh
+    docker run -d --restart=always --name=mcpe-console --net=host \
+      -v /opt/mcpe-data:/server/bedrock \
+      lomot/bedrock-web-console:latest
+    ```
 
 注意: 
- - 服务端数据文件夹/opt/mcpe-data需要包括完整的服务器文件才能运行, 第一次配置建议从官方网站下载并解压[Minecraft服务端下载]
- - 替换配置文件：在```/opt/mcpe-data```中添加```console.js```文件可以替换默认配置，格式为：
+ - 服务端数据文件夹```/opt/mcpe-data```需要包括完整的服务器文件才能运行, 第一次配置建议从官方网站下载并解压[Minecraft服务端下载]
+ - 替换配置文件：在```/opt/mcpe-data```中添加```console.js```文件可以覆盖默认配置，格式为：
 
-  ```json
-  var config = {
-    "localPort": 3000
-  };
-  module.exports = config;
-  ```
+    ```json
+    var config = {
+      "localPort": 3000
+    };
+    module.exports = config;
+    ```
 
 ## 配置
-#### 配置文件是config/index.js，当前可用项目：
+默认配置文件是config/config-default.js，当前可用项目：
  - localPort: 控制台网页端口
 
 
@@ -66,14 +76,12 @@ docker run -d --restart=always --name=mcpe-console --net=host \
  - 白名单
 
 ## 关联项目
-### LomotHo/minecraft-bedrock
+### [LomotHo/minecraft-bedrock](https://github.com/LomotHo/minecraft-bedrock)
 使用docker包装的bsd服务器，快速部署
-https://github.com/LomotHo/minecraft-bedrock
 
-### LomotHo/bedrock-webconsole—ui
+### [LomotHo/bedrock-webconsole—ui](https://github.com/LomotHo/bedrock-webconsole—ui)
 bedrock-console项目的web界面
-https://github.com/LomotHo/bedrock-webconsole—ui
 
-### LomotHo/bedrock-api
+### [LomotHo/bedrock-api](https://github.com/LomotHo/bedrock-api)
 bedrock http api，通过http向bds后台发送命令，相当于bedrock-console项目的无后台界面版
-https://github.com/LomotHo/bedrock-api
+

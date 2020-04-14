@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+   mcpe:
+      image: lomot/bedrock-web-console:latest
+      ports:
+        - 3000:3000
+        - 19132:19132/udp
+      volumes:
+        - /opt/mcpe-data:/server/bedrock
+      restart: always
+
