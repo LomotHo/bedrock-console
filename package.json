@@ -1,7 +1,7 @@
 {
   "name": "bedrock-console",
   "version": "0.3.3",
-  "description": "bedrock-console",
+  "description": "minecraft bedrock webconsole",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node ./app.js",
