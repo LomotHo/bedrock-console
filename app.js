@@ -26,7 +26,7 @@ var bdsProcess = BDS.getProcess();
 
 
 // static files, Vue view
-const home = static(path.join(__dirname)+'/public/');
+const home = static(path.join(__dirname)+'/vue-dist/');
 app.use(home);
 
 // restful api

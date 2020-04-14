@@ -14,9 +14,16 @@ version: 0.3.1
 git clone https://github.com/LomotHo/bedrock-console.git && cd bedrock-console
 
 // 2. 创建bedrock文件夹，解压服务端程序到bedrock
-mkdir bedrock && unzip bedrock-server-1.xx.xx.xx.zip
+mkdir bedrock && cd bedrock && unzip bedrock-server-1.xx.xx.xx.zip
+cd ..
 
-// 3.运行（要先安装nodejs）
+// 3.构建vue（要先安装nodejs）
+cd vue
+npm i
+npm run build
+cd ..
+
+// 4.运行
 npm i
 node app.js
 ```

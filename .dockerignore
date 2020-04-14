@@ -1,10 +1,15 @@
 # normal
-node_modules
+node_modules/
+*node_modules/*
 .DS_Store
 *.sqlite
 
 # for project
-.git
+.git/
+.github/
 .old/
 delivery.sqlite
-bedrock
+screenshot/
+bedrock/
+vue-dist/
+vue/node_modules/
