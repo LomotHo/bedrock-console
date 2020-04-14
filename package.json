@@ -1,11 +1,10 @@
 {
   "name": "bedrock-console",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "bedrock-console",
   "main": "index.js",
   "scripts": {
-    "start": "node ./app.js",
-    "test-init": "NODE_ENV=test node ./unit/init-db.js",
+    "start": "NODE_ENV=production node ./app.js",
     "test": "NODE_ENV=test node ./app.js",
     "dev": "NODE_ENV=test gulp"
   },
@@ -21,7 +20,6 @@
   "homepage": "https://github.com/LomotHo/bedrock-console#readme",
   "dependencies": {
     "koa": "^2.7.0",
-    "koa-route": "^3.2.0",
     "koa-router": "^8.0.8",
     "koa-static": "^5.0.0",
     "socket.io": "^2.3.0"
