@@ -1,5 +1,8 @@
 # for this repo
-bedrock/*
+bedrock/
+vue-dist/
+vue/node_modules/
+.dev_temp/
 
 # OS or Editor folders
 ._*

@@ -1,10 +1,12 @@
-var Koa = require('koa');
-var app = new Koa();
-var config = require('./config');
-var server = require('http').createServer(app.callback())
-var io = require('socket.io')(server);
-var readline = require('readline');
-var staticFiles = require('./util/static-flies');
+const Koa = require('koa');
+const app = new Koa();
+const config = require('./config');
+const server = require('http').createServer(app.callback())
+const io = require('socket.io')(server);
+const readline = require('readline');
+// var staticFiles = require('./util/static-flies');
+const path = require('path');
+const static = require('koa-static');
 var password = config.password;
 var authenticated = false;
 var clientsocket = "";
@@ -23,7 +25,9 @@ var token = function() {
 };
 
 // start static file
-app.use(new staticFiles('/', __dirname + '/view'));
+// app.use(new staticFiles('/', __dirname + '/view'));
+const home = static(path.join(__dirname)+'/view/');
+app.use(home);
 
 //Start the minecraft server
 var spawn = require('child_process').spawn,

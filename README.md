@@ -1,7 +1,7 @@
 [Minecraft服务端下载]:https://minecraft.net/en-us/download/server/bedrock/
 
 # bedrock-console
-version: 0.1.0
+version: 0.1.3
 
 ## 运行
 
@@ -22,7 +22,7 @@ node app.js
 ```
 docker run -d --restart=always --name=mcpe-console --net=host \
   -v /opt/mcpe-data:/server/bedrock \
-  lomot/minecraft-bedrock:base-console
+  lomot/bedrock-web-console:0.1.3
 ```
 
 注意: 
@@ -44,7 +44,7 @@ docker run -d --restart=always --name=mcpe-console --net=host \
 
 ## 使用
 
-默认登录页面为：http://www.xxx.com:3000/index.html
+默认登录页面为：http://www.xxx.com:3000
 
 ## 引用
 ### Minecraft-Nodejs-live-web-console
