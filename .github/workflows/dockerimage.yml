@@ -13,7 +13,8 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag lomot/bedrock-web-console:latest
-      - name: upload image
+
+    - name: upload image
       run: |
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
         docker tag lomot/bedrock-web-console:latest lomot/bedrock-web-console:0.1.3
