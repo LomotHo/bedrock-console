@@ -81,7 +81,7 @@ node app.js
 ### [LomotHo/minecraft-bedrock](https://github.com/LomotHo/minecraft-bedrock)
 使用docker包装的bsd服务器，快速部署
 
-### [LomotHo/bedrock-webconsole—ui](https://github.com/LomotHo/bedrock-webconsole—ui)
+### [LomotHo/bedrock-webconsole-ui](https://github.com/LomotHo/bedrock-webconsole-ui)
 bedrock-console项目的web界面
 
 ### [LomotHo/bedrock-api](https://github.com/LomotHo/bedrock-api)
