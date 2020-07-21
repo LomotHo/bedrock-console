@@ -17,6 +17,8 @@ jobs:
     - name: upload image
       run: |
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
-        # docker push lomot/bedrock-web-console:latest
-        docker tag lomot/bedrock-web-console:latest lomot/bedrock-web-console:dev
-        docker push lomot/bedrock-web-console:dev
+        docker push lomot/bedrock-web-console:latest
+        # docker tag lomot/bedrock-web-console:latest lomot/bedrock-web-console:dev
+        # docker push lomot/bedrock-web-console:dev
+        docker tag lomot/bedrock-web-console:latest lomot/bedrock-web-console:base
+        docker push lomot/bedrock-web-console:base
