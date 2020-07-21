@@ -1,6 +1,8 @@
-	#!/bin/sh
+#!/usr/bin/env bash
+
 set -e
 
-echo "ENTRYPOINT"
+echo "chmod +x bedrock_server"
 chmod +x bedrock/bedrock_server
+
 exec "$@"
