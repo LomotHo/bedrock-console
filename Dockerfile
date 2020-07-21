@@ -32,4 +32,6 @@ COPY --from=builder /vue-dist $PUBLIC_PATH
 
 EXPOSE 3000
 # RUN 
+
+ENTRYPOINT ["script/entrypoint.sh"]
 CMD ["node","app.js"]

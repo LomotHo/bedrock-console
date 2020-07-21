@@ -11,7 +11,7 @@ module.exports = {
       });
     }
     else {
-      throw new APIError("syntax", "cmd not found");
+      throw new APIError("syntax", "cmd empty");
     }
   }
 }
